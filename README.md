@@ -8,7 +8,7 @@ Additionally it is meant to open up the process a litte and make it possible to 
 
 ## Installation
 ```
-npm install express-route-loader
+npm install @xerren09/express-route-loader
 ```
 
 ## Requirements
@@ -23,7 +23,7 @@ Require the script in the main loader file (for us it's usually the app.js), and
 var express = require('express');
 var app = express();
 //Load and configure the loader
-var routeLoader = require('express-route-loader');
+var routeLoader = require('@xerren09/express-route-loader');
 routeLoader.load(app);
 ```
 

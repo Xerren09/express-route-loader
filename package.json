@@ -1,5 +1,5 @@
 {
-  "name": "express-route-loader",
+  "name": "@xerren09/express-route-loader",
   "version": "1.0.0",
   "description": "A smart script for automatic route module loading for ExpressJS 4.x",
   "main": "index.js",
@@ -21,6 +21,7 @@
   ],
   "author": "Bars Margetsch",
   "license": "BSD-3-Clause",
+  "private": false,
   "bugs": {
     "url": "https://github.com/Xerren09/express-route-loader/issues"
   },
@@ -29,5 +30,10 @@
     "fs": "^0.0.1-security",
     "path": "^0.12.7",
     "uuid": "^8.3.2"
-  }
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {}
 }
