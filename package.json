@@ -4,7 +4,7 @@
   "description": "A smart script for automatic route module loading for ExpressJS 4.x",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\""
   },
   "repository": {
     "type": "git",
