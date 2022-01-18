@@ -17,14 +17,14 @@ The library assumes that `Express 4.X` is used and the route modules are defined
 
 ## Usage
 
-Require the script in the main loader file (for us it's usually the app.js), and after the Express App's configuration is done, call `loadModules()`:
+Require the script in the main loader file (for us it's usually the app.js), and after the Express App's configuration is done, call `load()`:
 ```js
 //Load and configure Express
 var express = require('express');
 var app = express();
 //Load and configure the loader
 var routeLoader = require('express-route-loader');
-routeLoader.loadModules(app);
+routeLoader.load(app);
 ```
 
 For the following `routes/` directory layout the module will generate and attach the following URL:
@@ -43,7 +43,7 @@ projectRoot/routes
 ## Optional arguments
 
 ### Options
-As the second argument of `loadModules`, an object can be passed with the following keys to change the module's settings:
+As the second argument of `load`, an object can be passed with the following keys to change the module's settings:
 
 |  |  |
 | --- | --- |
@@ -103,12 +103,46 @@ The callback's only argument is an object which will have the following properti
 
 #### Example:
 ```js
-routeLoader.loadModules(app, options, (routerModule)=>{
-    console.log(routerModule.instance);
-    console.log(routerModule.path);
-    console.log(routerModule.mountURL);
-    console.log(routerModule.routes);
+routeLoader.load(app, options, (routerModule)=>{
+    console.log(routerModule.instance); // <Router module>
+    console.log(routerModule.path);     // 'd:\\backend\\routes\\index.js'
+    console.log(routerModule.mountURL); // '/'
+    console.log(routerModule.routes);   // [{id: 'd15aacfd-62b6-594e-93cf-85baa5e441ec', name: 'get_root', route: '/', parameters: [], method: 'get', modulePath: 'd:\\backend\\routes\\index.js', mountURL: '/'}, ...]
 });
 ```
 
 ## Extras
+
+### loadedRoutes
+
+Contains the list of routes that were loaded in. This can be used to build further tools that process the routes further, for example creating an export that can be used for automatically generating a documentation template.
+
+Every element of an array follows the same structure:
+```js
+[
+    {
+        id: 'd15aacfd-62b6-594e-93cf-85baa5e441ec',
+        name: 'get_root',
+        route: '/',
+        parameters: [], //every element is a string containing the parameter name as defined in the router module (leading : exlcuded)
+        method: 'get',
+        modulePath: 'd:\\backend\\routes\\index.js',
+        mountURL: '/'
+    }, 
+    ...
+]
+```
+
+### loadedModules
+
+Contains the list of Router modules that were loaded in. This is mainly for debugging and diagnostic purposes, as it can often be helpful to see which modules have actually been loaded in, and where are they attached.
+
+```js
+[
+    {
+        modulePath: 'd:\\backend\\routes\\index.js',
+        mountURL: '/'
+    }, 
+    ...
+]
+```
