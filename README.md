@@ -33,12 +33,14 @@ For the following `routes/` directory layout the module will generate and attach
 projectRoot/routes
 ├ accounts
 |   ├ corporate
-|       ├ corp.js               : <domain>/accounts/corporate/<module routes>
-|   ├ accountsHandler.js        : <domain>/accounts/<module routes>
+|       ├ corp.js               : /accounts/corporate/<module routes>
+|   ├ accountsHandler.js        : /accounts/<module routes>
 ├ orders
-|   ├ orderHandler.js           : <domain>/orders/<module routes>
-├ index.js                      : <domain>/<module routes>
+|   ├ orderHandler.js           : /orders/<module routes>
+├ index.js                      : /<module routes>
 ```
+
+The module names are completely ignored when creating the mount URL, and every module's routes in the given directory are directly attached to this URL.
 
 ## Optional arguments
 

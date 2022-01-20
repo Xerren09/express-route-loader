@@ -1,6 +1,6 @@
 {
   "name": "@xerren09/express-route-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A smart script for automatic route module loading for ExpressJS 4.x",
   "main": "index.js",
   "scripts": {
